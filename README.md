@@ -22,6 +22,4 @@ I am using Ubuntu 14.04 you may do the same by adding the image ```vagrant box a
 
 ***Provisioning the cluster***
 
-cd into the project directory and ```vagrant up```
-
-For now you need to ssh into each node to start DSE. For example ```vagrant ssh node1``` and run ```dse cassandra```. TODO is the automate the dse start.  
+cd into the project directory and ```vagrant up``` and your cluster will be ready. 
