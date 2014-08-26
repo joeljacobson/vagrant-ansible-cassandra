@@ -1,2 +1,2 @@
-- name: Start DSE
-  service: name=dse enabled=yes state=started 
+- name: starting DSE
+  service: name=dse enabled=yes state=started
