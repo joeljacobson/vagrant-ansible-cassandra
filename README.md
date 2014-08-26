@@ -2,7 +2,7 @@
 
 Quickly provision 3 DSE 4.5 nodes across 3 VMs using Vagrant and Ansible. The memory in the VMs is set to 4096. You may edit this in the ```Vagrantfile``` if you wish to reduce it before booting the VMs.
 
-**Prerequisites:**
+**Prerequisites**
 
 Install [Vagrant](https://www.vagrantup.com/downloads)
 
