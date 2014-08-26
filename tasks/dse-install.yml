@@ -1,5 +1,6 @@
 - name: installing datastax enterprise
   apt: pkg=dse-full state=installed update-cache=yes
+  register: dse
 
 - name: creating jna symlink
   shell: ln -s /usr/share/java/jna.jar /usr/share/dse/cassandra/lib || true
