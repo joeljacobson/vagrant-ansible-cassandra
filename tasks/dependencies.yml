@@ -9,4 +9,5 @@
   - vim
   - libssl0.9.8
   - libjna-java
+  - sysstat
   - python-software-properties

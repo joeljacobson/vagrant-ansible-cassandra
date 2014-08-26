@@ -1,25 +1,25 @@
+***Introduction****
+
+Quickly provision 3 DSE 4.5 nodes across 3 VMs using Vagrant and Ansible. The memory in the VMs is set to 4096. You may edit this in the ```Vagrantfile``` if you wish to reduce it before booting the VMs.
+
 ***Prerequisites:***
 
 Install [Vagrant](https://www.vagrantup.com/downloads)
 
-Install Ansible on OSX and Ubuntu below.
+Install [Ansible](http://docs.ansible.com/intro_installation.html)
 
-**OSX**
+Add the Ubuntu 14.04 vagrant base image ```vagrant box add precise64 http://files.vagrantup.com/precise64.box```
 
-[Homebrew](http://brew.sh/) ```brew install ansible```
+****Provisioning the cluster****
 
-**Ubuntu**
+cd into the project directory and enter ```vagrant up```. Your cluster will be ready shortly depending on your internet connection. The first time takes a while as ansible has to setup the VMs and download DSE & dependencies. DSE will be automatically configured and started automatically.
 
-```sudo apt-get install software-properties-common```
+The nodes will be running on; 192.168.56.10, 192.168.56.20, 192.168.56.30
 
-```sudo apt-add-repository ppa:ansible/ansible```
+To shutdown the VMs ```vagrant halt```
 
-```sudo apt-get update```
+To resume VMs ```vagrant up```. DSE will be started automatically.
 
-```sudo apt-get install ansible```
+To completely destroy the VMs (requires re-provisioning) ```vagrant destroy```
 
-I am using Ubuntu 14.04 you may do the same by adding the image ```vagrant box add precise64 http://files.vagrantup.com/precise64.box```
-
-***Provisioning the cluster***
-
-cd into the project directory and ```vagrant up``` and your cluster will be ready. 
+**TODO** Lots. 
