@@ -22,4 +22,5 @@ To resume VMs ```vagrant up```. DSE will be started automatically.
 
 To completely destroy the VMs (requires re-provisioning) ```vagrant destroy```
 
-**TODO** Lots.
+**TODO**
+Lots.
