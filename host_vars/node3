@@ -1,0 +1,5 @@
+config:
+   cluster_name: 'DSE Cluster'
+   seeds: '192.168.56.10'
+   listen_address: '192.168.56.30'
+   rpc_address: '192.168.56.30'

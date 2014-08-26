@@ -1,0 +1,12 @@
+- name: updating machine
+  shell: apt-get update
+
+- name: installing some dependencies
+  apt: pkg={{ item }} state=installed update-cache=yes
+  with_items:
+  - git
+  - curl
+  - vim
+  - libssl0.9.8
+  - libjna-java
+  - python-software-properties
