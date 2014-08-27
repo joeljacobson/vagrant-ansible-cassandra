@@ -12,9 +12,9 @@ Add the Ubuntu 14.04 vagrant base image ```vagrant box add precise64 http://file
 
 ##Provisioning
 
-Clone the project ```git clone https://github.com/joeljacobson/dse-ansible-vagrant-cluster.git```
+Clone the project: ```git clone https://github.com/joeljacobson/dse-ansible-vagrant-cluster.git```
 
-In the project directory enter ```vagrant up```
+In the project directory enter: ```vagrant up```
 
 Your cluster will be ready shortly depending on your internet connection. The initial boot takes some time as Ansible has to download, setup and configure DSE across each VM. Subsequent reboots are fast.
 
@@ -26,13 +26,13 @@ Opscenter will be running on: ```192.168.56.40:8888```
 
 Install the datastax-agents by entering ```vagrant``` for both the username and password.
 
-ssh onto a node with ```vagrant ssh <nodename>```
+ssh onto a node with: ```vagrant ssh <nodename>```
 
-To shutdown the VMs ```vagrant halt```
+To shutdown the VMs: ```vagrant halt```
 
-To resume VMs ```vagrant up```
+To resume VMs: ```vagrant up```
 
-To completely destroy the VMs (requires re-provisioning) ```vagrant destroy```
+To completely destroy the VMs (requires re-provisioning): ```vagrant destroy```
 
 **TODO**
 
