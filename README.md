@@ -4,9 +4,9 @@ Quickly provision 3 DSE 4.5 nodes and Opscenter 5.0 across 4 VMs using Ansible w
 
 ##Prerequisites
 
-*[Virtualbox](https://www.virtualbox.org/)
-*[Vagrant](https://www.vagrantup.com/downloads)
-*[Ansible](http://docs.ansible.com/intro_installation.html)
+[Virtualbox](https://www.virtualbox.org/)
+[Vagrant](https://www.vagrantup.com/downloads)
+[Ansible](http://docs.ansible.com/intro_installation.html)
 
 Add the Ubuntu 14.04 vagrant base image ```vagrant box add precise64 http://files.vagrantup.com/precise64.box```
 
