@@ -24,15 +24,15 @@ The nodes will be running on: ```192.168.56.10```, ```192.168.56.20```, ```192.1
 
 Opscenter will be running on: ```192.168.56.40:8888```
 
-Install the datastax-agents by entering ```vagrant``` for both the username and password.
+Install the datastax-gents by entering ```vagrant``` for both the username and password.
 
-ssh onto a node with: ```vagrant ssh <nodename>```
+ssh into a node with: ```vagrant ssh <nodename>```
 
-To shutdown the VMs: ```vagrant halt```
+Shutdown the VMs: ```vagrant halt```
 
-To resume VMs: ```vagrant up```
+Resume VMs: ```vagrant up```
 
-To completely destroy the VMs (requires re-provisioning): ```vagrant destroy```
+Destroy the VMs (requires re-provisioning): ```vagrant destroy```
 
 **TODO**
 
