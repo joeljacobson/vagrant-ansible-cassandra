@@ -8,7 +8,7 @@ Easily provision 3 DataStax Enterprise 4.5 nodes and Opscenter 5.0 across 4 VMs 
 * [Vagrant](https://www.vagrantup.com/downloads)
 * [Ansible](http://docs.ansible.com/intro_installation.html)
 
-Add the Ubuntu 14.04 vagrant base image ```vagrant box add precise64 http://files.vagrantup.com/precise64.box```
+Add the Ubuntu 14.04 vagrant base image: ```vagrant box add precise64 http://files.vagrantup.com/precise64.box```
 
 ##Provisioning
 
