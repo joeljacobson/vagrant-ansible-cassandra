@@ -12,7 +12,7 @@ Add the Ubuntu 14.04 vagrant base image ```vagrant box add precise64 http://file
 
 **Provisioning**
 
-In the project directory enter ```vagrant up```.
+In the project directory enter ```vagrant up```
 
 Your cluster will be ready shortly depending on your internet connection. The first time takes some time as Ansible has to download, setup and configure DSE across each VM. Subsequent shutdowns and restarts are fast.
 
