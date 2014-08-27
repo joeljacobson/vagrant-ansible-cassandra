@@ -22,8 +22,17 @@ Vagrant.configure("2") do |config|
     ansible.playbook = "site.yml"
   end
 
-  config.vm.provider "virtualbox" do |vb|
-    vb.customize ["modifyvm", :id, "--memory", "4096"]
+  config.vm.define "opscenter" do |opscenter|
+    opscenter.vm.box = "precise64"
+    opscenter.vm.network  "private_network", ip: "192.168.56.40"
   end
+
+  config.vm.provision "ansible" do |ansible|
+   ansible.playbook = "opscenter.yml"
+ end
+
+ config.vm.provider "virtualbox" do |vb|
+   vb.customize ["modifyvm", :id, "--memory", "2048"]
+ end
 
 end

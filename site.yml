@@ -1,5 +1,5 @@
 ---
-- hosts: all
+- hosts: [ "node1", "node2", "node3" ]
   user: vagrant
   sudo: True
   tasks:

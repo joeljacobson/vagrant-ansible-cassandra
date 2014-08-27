@@ -1,0 +1,34 @@
+---
+- hosts: opscenter
+  user: vagrant
+  sudo: True
+  tasks:
+  - name: updating machine
+    shell: apt-get update
+
+  - name: installing some dependencies
+    apt: pkg={{ item }} state=installed update-cache=yes
+    with_items:
+      - git
+      - curl
+      - vim
+      - libssl0.9.8
+      - libjna-java
+      - sysstat
+      - python-software-properties
+
+  - name: adding repo
+    shell: echo "deb http://debian.datastax.com/community stable main" | sudo tee -a /etc/apt/sources.list.d/datastax.community.list
+
+  - name: adding repo key
+    shell: curl -L https://debian.datastax.com/debian/repo_key | sudo apt-key add -
+
+  - name: updating machine
+    shell: apt-get update
+
+  - name: installing opscenter
+    apt: pkg=opscenter state=installed update-cache=yes
+    register: opscenterd
+
+  - name: starting opscenter
+    service: name=opscenterd enabled=yes state=started
