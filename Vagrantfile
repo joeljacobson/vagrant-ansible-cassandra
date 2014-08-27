@@ -28,7 +28,7 @@ Vagrant.configure("2") do |config|
   end
 
   config.vm.provision "ansible" do |ansible|
-   ansible.playbook = "opscenter.yml"
+   ansible.playbook = "tasks/opscenter.yml"
  end
 
  config.vm.provider "virtualbox" do |vb|
