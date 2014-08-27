@@ -16,6 +16,10 @@ Clone the project: ```git clone https://github.com/joeljacobson/dse-ansible-vagr
 
 In the project directory enter: ```vagrant up```
 
+Ansible will begin to provision the cluster.
+
+![](https://camo.githubusercontent.com/ae0fd6b1ef28ea75df765593f278c5abc03a4e86/687474703a2f2f69313136362e70686f746f6275636b65742e636f6d2f616c62756d732f713631332f6a6f656c6a61636f62736f6e2f53637265656e53686f74323031342d30382d323761743137313033395f7a707363666662373731362e706e67)
+
 Your cluster will be ready shortly depending on your internet connection. The initial boot takes some time as Ansible has to download, setup and configure DSE across each VM. Subsequent reboots are fast.
 
 DSE and Opscenter will be automatically configured and started once installed. They will also be automatically started each time the VMs are booted.
