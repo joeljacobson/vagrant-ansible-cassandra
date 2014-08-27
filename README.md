@@ -1,6 +1,6 @@
 ##Introduction
 
-Quickly provision 3 DSE 4.5 nodes and Opscenter 5.0 across 4 VMs using Ansible with Vagrant & Virtualbox.
+Easily provision 3 DataStax Enterprise 4.5 nodes and Opscenter 5.0 across 4 VMs using Ansible with Vagrant & Virtualbox.
 
 ##Prerequisites
 
