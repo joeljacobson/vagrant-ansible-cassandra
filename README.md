@@ -1,6 +1,6 @@
 **Introduction**
 
-Quickly provision 3 DSE 4.5 nodes and Opscenter across 4 VMs using Ansible with Vagrant & Virtualbox.
+Quickly provision 3 DSE 4.5 nodes and Opscenter 5.0 across 4 VMs using Ansible with Vagrant & Virtualbox.
 
 **Prerequisites**
 
@@ -22,7 +22,7 @@ The nodes will be running on: ```192.168.56.10```, ```192.168.56.20```, ```192.1
 
 Opscenter will be running on:```192.168.56.40:8888```
 
-Install the agents by entering ```vagrant``` for both the username and password.
+Install the agents by entering vagrant for both the username and password.
 
 ssh onto a node with ```vagrant ssh node1```
 
