@@ -36,4 +36,4 @@ To completely destroy the VMs (requires re-provisioning): ```vagrant destroy```
 
 **TODO**
 
-Ability to provision Spark & Solr nodes.
+Ability to provision Spark & Solr nodes across multi-dc
