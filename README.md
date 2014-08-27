@@ -14,7 +14,7 @@ Add the Ubuntu 14.04 vagrant base image ```vagrant box add precise64 http://file
 
 In the project directory enter ```vagrant up```
 
-Your cluster will be ready shortly depending on your internet connection. The first time takes some time as Ansible has to download, setup and configure DSE across each VM. Subsequent shutdowns and restarts are fast.
+Your cluster will be ready shortly depending on your internet connection. The initial boot takes some time as Ansible has to download, setup and configure DSE across each VM. Subsequent shutdowns and restarts are fast.
 
 DSE and Opscenter will be automatically configured and started once installed. They will also be automatically started each time the VMs are booted.
 
