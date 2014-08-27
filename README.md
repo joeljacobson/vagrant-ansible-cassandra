@@ -32,7 +32,7 @@ Shutdown the VMs: ```vagrant halt```
 
 Resume VMs: ```vagrant up```
 
-To completely destroy the VMs (requires re-provisioning): ```vagrant destroy```
+Destroy the VMs (requires re-provisioning): ```vagrant destroy```
 
 **TODO**
 
