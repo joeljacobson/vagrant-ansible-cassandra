@@ -24,16 +24,16 @@ The nodes will be running on: ```192.168.56.10```, ```192.168.56.20```, ```192.1
 
 Opscenter will be running on: ```192.168.56.40:8888```
 
-Install the datastax-gents by entering ```vagrant``` for both the username and password.
+Install the datastax-agents by entering ```vagrant``` for both the username and password.
 
-ssh into a node with: ```vagrant ssh <nodename>```
+ssh onto a node with: ```vagrant ssh <nodename>```
 
-Shutdown the VMs: ```vagrant halt```
+To shutdown the VMs: ```vagrant halt```
 
-Resume VMs: ```vagrant up```
+To resume VMs: ```vagrant up```
 
-Destroy the VMs (requires re-provisioning): ```vagrant destroy```
+To completely destroy the VMs (requires re-provisioning): ```vagrant destroy```
 
 **TODO**
 
-Ability to provision Spark & Solr nodes across multi-datacenters.
+Ability to provision Spark & Solr nodes across multiple datacenters.
