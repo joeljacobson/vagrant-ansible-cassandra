@@ -5,7 +5,6 @@ Quickly provision 3 DSE 4.5 nodes and Opscenter across 4 VMs using Ansible with 
 **Prerequisites**
 
 [Vagrant](https://www.vagrantup.com/downloads)
-
 [Ansible](http://docs.ansible.com/intro_installation.html)
 
 Add the Ubuntu 14.04 vagrant base image ```vagrant box add precise64 http://files.vagrantup.com/precise64.box```
@@ -22,7 +21,9 @@ The nodes will be running on: ```192.168.56.10```, ```192.168.56.20```, ```192.1
 
 Opscenter will be running on:```192.168.56.40:8888```
 
-Ssh onto a node with ```vagrant ssh node1```
+Install the agents with by entering vagrant for both the username and password. 
+
+ssh onto a node with ```vagrant ssh node1```
 
 To shutdown the VMs ```vagrant halt```
 
