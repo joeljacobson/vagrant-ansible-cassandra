@@ -20,17 +20,17 @@ Your cluster will be ready shortly depending on your internet connection. The in
 
 DSE and Opscenter will be automatically configured and started once installed. They will also be automatically started each time the VMs are booted.
 
-The nodes will be running on: ```192.168.56.10```, ```192.168.56.20```, ```192.168.56.30```
+Nodes will be running on: ```192.168.56.10```, ```192.168.56.20```, ```192.168.56.30```
 
 Opscenter will be running on: ```192.168.56.40:8888```
 
 Install the datastax-agents by entering ```vagrant``` for both the username and password.
 
-ssh onto a node with: ```vagrant ssh <nodename>```
+SSH into a node with: ```vagrant ssh <nodename>```
 
-To shutdown the VMs: ```vagrant halt```
+Shutdown the VMs: ```vagrant halt```
 
-To resume VMs: ```vagrant up```
+Resume VMs: ```vagrant up```
 
 To completely destroy the VMs (requires re-provisioning): ```vagrant destroy```
 
