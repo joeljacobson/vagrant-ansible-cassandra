@@ -22,7 +22,7 @@ The nodes will be running on: ```192.168.56.10```, ```192.168.56.20```, ```192.1
 
 Opscenter will be running on:```192.168.56.40:8888```
 
-Install the agents with by entering vagrant for both the username and password.
+Install the agents by entering ```vagrant``` for both the username and password.
 
 ssh onto a node with ```vagrant ssh node1```
 
