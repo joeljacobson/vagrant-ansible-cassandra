@@ -12,7 +12,7 @@ Add the Ubuntu 14.04 vagrant base image: ```vagrant box add precise64 http://fil
 
 ##Provisioning
 
-Clone the project: ```git clone https://github.com/joeljacobson/dse-ansible-vagrant-cluster.git```
+Clone the project: ```git clone https://github.com/joeljacobson/vagrant-ansible-dse-cluster.git```
 
 In the project directory enter: ```vagrant up```
 
