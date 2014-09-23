@@ -33,7 +33,3 @@ Shutdown the VMs: ```vagrant halt```
 Resume VMs: ```vagrant up```
 
 Destroy the VMs (requires re-provisioning): ```vagrant destroy```
-
-**TODO**
-
-Ability to provision Spark & Solr nodes across multiple datacenters.
