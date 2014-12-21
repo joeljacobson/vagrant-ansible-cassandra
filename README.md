@@ -1,6 +1,6 @@
 ##Introduction
 
-Easily provision 3 DSE Cassandra 4.6 nodes and Opscenter 5.0 across 4 VMs using Ansible with Vagrant & Virtualbox.
+Easily provision 3 DSE Cassandra 4.6 nodes and Opscenter 5.x across 4 VMs using Ansible with Vagrant & Virtualbox.
 
 ##Prerequisites
 
