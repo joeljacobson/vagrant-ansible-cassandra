@@ -1,0 +1,80 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Vagrant-ansible-cassandra by joeljacobson</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Vagrant-ansible-cassandra</h1>
+        <p>Easily provision a 3 node DSE Cassandra cluster with Opscenter using Ansible and Vagrant.</p>
+
+        <p class="view"><a href="https://github.com/joeljacobson/vagrant-ansible-cassandra">View the Project on GitHub <small>joeljacobson/vagrant-ansible-cassandra</small></a></p>
+
+
+        <ul>
+          <li><a href="https://github.com/joeljacobson/vagrant-ansible-cassandra/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/joeljacobson/vagrant-ansible-cassandra/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/joeljacobson/vagrant-ansible-cassandra">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h2>
+<a id="introduction" class="anchor" href="#introduction" aria-hidden="true"><span class="octicon octicon-link"></span></a>Introduction</h2>
+
+<p>Easily provision 3 DSE Cassandra nodes with Opscenter across 4 VMs using Ansible with Vagrant &amp; Virtualbox.</p>
+
+<h2>
+<a id="prerequisites" class="anchor" href="#prerequisites" aria-hidden="true"><span class="octicon octicon-link"></span></a>Prerequisites</h2>
+
+<ul>
+<li><a href="https://www.virtualbox.org/">Virtualbox</a></li>
+<li><a href="https://www.vagrantup.com/downloads">Vagrant</a></li>
+<li><a href="http://docs.ansible.com/intro_installation.html">Ansible</a></li>
+</ul>
+
+<p>Add the Ubuntu base image: <code>vagrant box add precise64 http://files.vagrantup.com/precise64.box</code></p>
+
+<h2>
+<a id="provisioning" class="anchor" href="#provisioning" aria-hidden="true"><span class="octicon octicon-link"></span></a>Provisioning</h2>
+
+<p>Clone the project: <code>git clone https://github.com/joeljacobson/vagrant-ansible-cassandra.git</code></p>
+
+<p>In the project directory enter: <code>vagrant up</code></p>
+
+<p>Your cluster will be ready shortly depending on your internet connection. The initial boot takes some time as Ansible has to download, install and configure DSE across each VM. Subsequent reboots are fast.</p>
+
+<p>DSE and Opscenter will be automatically configured and started once installed. They will also be automatically started each time the VMs are booted.</p>
+
+<p>Nodes will be running on: <code>192.168.56.10</code>, <code>192.168.56.20</code>, <code>192.168.56.30</code></p>
+
+<p>Opscenter will be running on: <code>192.168.56.40:8888</code></p>
+
+<p>Install the datastax-agents by entering <code>vagrant</code> for both the username and password.</p>
+
+<p>SSH into a node with: <code>vagrant ssh &lt;nodename&gt;</code></p>
+
+<p>Shutdown the VMs: <code>vagrant halt</code></p>
+
+<p>Resume VMs: <code>vagrant up</code></p>
+
+<p>Destroy the VMs (requires re-provisioning): <code>vagrant destroy</code></p>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/joeljacobson">joeljacobson</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+    
+  </body>
+</html>
