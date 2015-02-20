@@ -8,8 +8,6 @@ Easily provision 3 DSE Cassandra nodes with Opscenter across 4 VMs using Ansible
 * [Vagrant](https://www.vagrantup.com/downloads)
 * [Ansible](http://docs.ansible.com/intro_installation.html)
 
-Add the Ubuntu base image: ```vagrant box add precise64 http://files.vagrantup.com/precise64.box```
-
 ##Provisioning
 
 Clone the project: ```git clone https://github.com/joeljacobson/vagrant-ansible-cassandra.git```
