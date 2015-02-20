@@ -3,6 +3,9 @@
 
 Vagrant.configure("2") do |config|
 
+  config.vm.box = "precise64"
+    config.vm.box_url = "http://files.vagrantup.com/precise64.box"
+
    config.vm.define "node1" do |node1|
     node1.vm.box = "precise64"
     node1.vm.network  "private_network", ip: "192.168.56.10"
