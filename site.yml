@@ -3,7 +3,7 @@
   user: vagrant
   sudo: True
   tasks:
-
+  
   - include: tasks/dependencies.yml
   - include: tasks/repositories.yml
   - include: tasks/java-install.yml

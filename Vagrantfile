@@ -18,7 +18,7 @@ Vagrant.configure("2") do |config|
     node3.vm.network  "private_network", ip: "192.168.56.30"
   end
 
-   config.vm.provision "ansible" do |ansible|
+   config.vm.provision :ansible do |ansible|
     ansible.playbook = "site.yml"
   end
 
