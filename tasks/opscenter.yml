@@ -1,5 +1,5 @@
 ---
-- hosts: node3
+- hosts: opscenter
   user: vagrant
   sudo: True
   tasks:
