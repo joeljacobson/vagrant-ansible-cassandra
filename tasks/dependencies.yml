@@ -1,5 +1,5 @@
 - name: updating machine
-  shell: apt-get update
+  apt: name=* state=latest
 
 - name: installing some dependencies
   apt: pkg={{ item }} state=installed update-cache=yes

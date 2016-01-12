@@ -8,4 +8,4 @@
   shell: curl -L https://debian.datastax.com/debian/repo_key | sudo apt-key add -
 
 - name: updating machine
-  shell: apt-get update
+  apt: name=* state=latest

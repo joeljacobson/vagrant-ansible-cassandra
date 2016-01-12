@@ -4,7 +4,7 @@
   sudo: True
   tasks:
   - name: updating machine
-    shell: apt-get update
+    apt: name=* state=latest
 
   - name: installing some dependencies
     apt: pkg={{ item }} state=installed update-cache=yes
@@ -24,7 +24,7 @@
     shell: curl -L https://debian.datastax.com/debian/repo_key | sudo apt-key add -
 
   - name: updating machine
-    shell: apt-get update
+    apt: name=* state=latest
 
   - name: installing opscenter
     apt: pkg=opscenter state=installed update-cache=yes
