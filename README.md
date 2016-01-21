@@ -18,9 +18,9 @@ Your cluster will be ready shortly depending on your internet connection. The in
 
 DSE and Opscenter will be automatically configured and started once installed. They will also be automatically started each time the VMs are booted.
 
-Nodes will be running on: ```192.168.56.10```, ```192.168.56.20```, ```192.168.56.30```
+Nodes will be running on: ```192.168.56.11```, ```192.168.56.12```, ```192.168.56.13```
 
-Opscenter will be running on: ```192.168.56.40:8888```
+Opscenter will be running on: ```192.168.56.14:8888```
 
 Install the datastax-agents by entering ```vagrant``` for both the username and password.
 
