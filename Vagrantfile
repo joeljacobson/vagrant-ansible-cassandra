@@ -2,40 +2,25 @@
 # vi: set ft=ruby :
 
 Vagrant.configure("2") do |config|
-
+N = 3
+(1..N).each do |machine_id|
   config.vm.box = "precise64"
-    config.vm.box_url = "http://files.vagrantup.com/precise64.box"
-
-   config.vm.define "node1" do |node1|
-    node1.vm.box = "precise64"
-    node1.vm.network  "private_network", ip: "192.168.56.10"
+  config.vm.box_url = "http://files.vagrantup.com/precise64.box"
+  config.vm.define "node#{machine_id}" do |machine|
+    machine.vm.hostname = "node#{machine_id}"
+    machine.vm.network "private_network", ip: "192.168.56.#{10+machine_id}"
+    # Only execute once the Ansible provisioner,
+    # when all the machines are up and ready.
+    if machine_id == N
+      machine.vm.provision :ansible do |ansible|
+        # Disable default limit to connect to all the machines
+        ansible.limit = "all"
+        ansible.playbook = "site.yml"
+       config.vm.provider "virtualbox" do |vb|
+         vb.customize ["modifyvm", :id, "--memory", "2048"]
+       end
+      end
+    end
   end
-
-   config.vm.define "node2" do |node2|
-    node2.vm.box = "precise64"
-    node2.vm.network  "private_network", ip: "192.168.56.20"
-  end
-
-   config.vm.define "node3" do |node3|
-    node3.vm.box = "precise64"
-    node3.vm.network  "private_network", ip: "192.168.56.30"
-  end
-
-   config.vm.provision "ansible" do |ansible|
-    ansible.playbook = "site.yml"
-  end
-
-  config.vm.define "opscenter" do |opscenter|
-    opscenter.vm.box = "precise64"
-    opscenter.vm.network  "private_network", ip: "192.168.56.40"
-  end
-
-  config.vm.provision "ansible" do |ansible|
-   ansible.playbook = "tasks/opscenter.yml"
- end
-
- config.vm.provider "virtualbox" do |vb|
-   vb.customize ["modifyvm", :id, "--memory", "2048"]
- end
-
+end
 end
