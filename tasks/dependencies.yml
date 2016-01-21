@@ -1,12 +1,10 @@
 - name: updating machine
   apt: update_cache=yes
 
-- name: installing some dependencies
+- name: installing dependencies
   apt: pkg={{ item }} state=installed update-cache=yes
   with_items:
-  - git
   - curl
-  - vim
   - libssl0.9.8
   - libjna-java
   - sysstat
