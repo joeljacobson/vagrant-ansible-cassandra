@@ -5,7 +5,7 @@
   shell: echo "deb http://datastaxrepo_gmail.com:utJVKEg4lKeaWTX@debian.datastax.com/enterprise stable main" | sudo tee -a /etc/apt/sources.list.d/datastax.sources.list
 
 - name: adding repo key
-  shell: curl -L https://debian.datastax.com/debian/repo_key | sudo apt-key add -
+  apt_key: url=https://debian.datastax.com/debian/repo_key state=present
 
 - name: updating machine
-  apt: name=* state=latest
+  apt: update_cache=yes
