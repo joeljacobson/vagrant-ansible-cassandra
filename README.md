@@ -26,6 +26,8 @@ Install the datastax-agents by entering ```vagrant``` for both the username and 
 
 SSH into a node with: ```vagrant ssh <nodename>```
 
+CQLSH example ```cqlsh 192.168.56.11```
+
 Shutdown the VMs: ```vagrant halt```
 
 Resume VMs: ```vagrant up```
