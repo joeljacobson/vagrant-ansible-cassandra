@@ -3,8 +3,6 @@
   user: vagrant
   become: True
   tasks:
-  - name: updating machine
-    apt: update_cache=yes
 
   - name: installing some dependencies
     apt: pkg={{ item }} state=installed update-cache=yes
@@ -12,8 +10,20 @@
       - libssl0.9.8
       - python-software-properties
 
+  - name: adding oracle java repository
+    shell: add-apt-repository -y ppa:webupd8team/java
+
+  - name: updating machine
+    apt: update_cache=yes
+
+  - name: preparing for java installation
+    shell: /bin/echo debconf shared/accepted-oracle-license-v1-1 select true | /usr/bin/debconf-set-selections
+
+  - name: installing oracle java
+    shell: DEBIAN_FRONTEND=noninteractive apt-get -y install oracle-java8-installer oracle-java8-set-default
+
   - name: adding repo
-    shell: echo "deb http://debian.datastax.com/community stable main" | sudo tee -a /etc/apt/sources.list.d/datastax.community.list
+    shell: echo "deb http://datastaxrepo_gmail.com:utJVKEg4lKeaWTX@debian.datastax.com/enterprise stable main" | sudo tee -a /etc/apt/sources.list.d/datastax.sources.list
 
   - name: adding repo key
     apt_key: url=https://debian.datastax.com/debian/repo_key state=present

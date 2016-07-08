@@ -5,7 +5,7 @@ Vagrant.configure("2") do |config|
 N = 3
 (1..N).each do |machine_id|
   config.vm.box = "precise64"
-  config.vm.box_url = "http://files.vagrantup.com/precise64.box"
+  config.vm.box_url = "https://atlas.hashicorp.com/ubuntu/boxes/precise64"
   config.vm.define "node#{machine_id}" do |machine|
     machine.vm.hostname = "node#{machine_id}"
     machine.vm.network "private_network", ip: "192.168.56.#{10+machine_id}"
