@@ -1,17 +1,16 @@
 ---
 - hosts: opscenter
   user: vagrant
-  become: True
+  become: yes
   tasks:
 
-  - name: installing some dependencies
+  - name: installing dependencies
     apt: pkg={{ item }} state=installed update-cache=yes
     with_items:
-      - libssl0.9.8
-      - python-software-properties
+      - curl
 
   - name: adding oracle java repository
-    shell: add-apt-repository -y ppa:webupd8team/java
+    apt_repository: repo='ppa:webupd8team/java' state=present
 
   - name: updating machine
     apt: update_cache=yes

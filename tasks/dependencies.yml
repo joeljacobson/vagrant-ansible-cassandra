@@ -5,8 +5,3 @@
   apt: pkg={{ item }} state=installed update-cache=yes
   with_items:
   - curl
-  - libssl0.9.8
-  - libjna-java
-  - sysstat
-  - python-software-properties
-  

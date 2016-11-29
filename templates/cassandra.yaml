@@ -22,7 +22,7 @@ cluster_name: '{{ config.cluster_name }}'
 #
 # If you already have a cluster with 1 token per node, and wish to migrate to
 # multiple tokens per node, see http://wiki.apache.org/cassandra/Operations
-num_tokens: 128
+num_tokens: 32
 
 # Triggers automatic allocation of num_tokens tokens for this node. The allocation
 # algorithm attempts to choose tokens in a way that optimizes replicated load over
@@ -67,8 +67,8 @@ hinted_handoff_throttle_in_kb: 1024
 max_hints_delivery_threads: 2
 
 # Directory where Cassandra should store hints.
-# If not set, the default directory is $CASSANDRA_HOME/data/hints.
-hints_directory: /var/lib/cassandra/hints
+# If not set, the default directory is $DSE_HOME/data/hints.
+hints_directory: /Users/joeljacobson/dse/hints
 
 # How often hints should be flushed from the internal buffers to disk.
 # Will *not* trigger fsync.
@@ -181,14 +181,14 @@ partitioner: org.apache.cassandra.dht.Murmur3Partitioner
 # Directories where Cassandra should store data on disk.  Cassandra
 # will spread data evenly across them, subject to the granularity of
 # the configured compaction strategy.
-# If not set, the default directory is $CASSANDRA_HOME/data/data.
+# If not set, the default directory is $DSE_HOME/data/data.
 data_file_directories:
-     - /var/lib/cassandra/data
+     - /Users/joeljacobson/dse/data
 
 # commit log.  when running on magnetic HDD, this should be a
 # separate spindle than the data directories.
-# If not set, the default directory is $CASSANDRA_HOME/data/commitlog.
-commitlog_directory: /var/lib/cassandra/commitlog
+# If not set, the default directory is $DSE_HOME/data/commitlog.
+commitlog_directory: /Users/joeljacobson/dse/commitlog
 
 # policy for data disk failures:
 # die: shut down gossip and client transports and kill the JVM for any fs errors or
@@ -299,8 +299,8 @@ counter_cache_save_period: 7200
 # counter_cache_keys_to_save: 100
 
 # saved caches
-# If not set, the default directory is $CASSANDRA_HOME/data/saved_caches.
-saved_caches_directory: /var/lib/cassandra/saved_caches
+# If not set, the default directory is $DSE_HOME/data/saved_caches.
+saved_caches_directory: /Users/joeljacobson/dse/saved_caches
 
 # commitlog_sync may be either "periodic" or "batch."
 #
@@ -778,12 +778,15 @@ cross_node_timeout: false
 #   more than one replica on the same "rack" (which may not actually
 #   be a physical location)
 #
-# IF YOU CHANGE THE SNITCH AFTER DATA IS INSERTED INTO THE CLUSTER,
-# YOU MUST RUN A FULL REPAIR, SINCE THE SNITCH AFFECTS WHERE REPLICAS
-# ARE PLACED.
-#
-# IF THE RACK A REPLICA IS PLACED IN CHANGES AFTER THE REPLICA HAS BEEN
-# ADDED TO A RING, THE NODE MUST BE DECOMMISSIONED AND REBOOTSTRAPPED.
+# CASSANDRA WILL NOT ALLOW YOU TO SWITCH TO AN INCOMPATIBLE SNITCH
+# ONCE DATA IS INSERTED INTO THE CLUSTER.  This would cause data loss.
+# This means that if you start with the default SimpleSnitch, which
+# locates every node on "rack1" in "datacenter1", your only options
+# if you need to add another datacenter are GossipingPropertyFileSnitch
+# (and the older PFS).  From there, if you want to migrate to an
+# incompatible snitch like Ec2Snitch you can do it by adding new nodes
+# under Ec2Snitch (which will locate them in a new "datacenter") and
+# decommissioning the old ones.
 #
 # Out of the box, Cassandra provides
 #  - SimpleSnitch:
@@ -944,9 +947,14 @@ inter_dc_tcp_nodelay: false
 tracetype_query_ttl: 86400
 tracetype_repair_ttl: 604800
 
-# GC Pauses greater than gc_warn_threshold_in_ms will be logged at WARN level
-# Adjust the threshold based on your application throughput requirement
 # By default, Cassandra logs GC Pauses greater than 200 ms at INFO level
+# This threshold can be adjusted to minimize logging if necessary
+# gc_log_threshold_in_ms: 200
+
+# GC Pauses greater than gc_warn_threshold_in_ms will be logged at WARN level
+# If unset, all GC Pauses greater than gc_log_threshold_in_ms will log at
+# INFO level
+# Adjust the threshold based on your application throughput requirement
 gc_warn_threshold_in_ms: 1000
 
 # UDFs (user defined functions) are disabled by default.
@@ -970,3 +978,8 @@ windows_timer_interval: 1
 # early. Any value size larger than this threshold will result into marking an SSTable
 # as corrupted.
 # max_value_size_in_mb: 256
+
+# Strategy to use for coalescing messages in OutboundTcpConnection.
+# Can be FIXED, MOVINGAVERAGE, TIMEHORIZON, DISABLED.
+# DISABLED by default due to https://issues.apache.org/jira/browse/CASSANDRA-12676
+otc_coalescing_strategy: DISABLED
