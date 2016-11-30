@@ -4,6 +4,8 @@ Easily provision 3 DSE Cassandra nodes with Opscenter across 4 VMs using Ansible
 
 ##Prerequisites
 
+Make sure all of these are up-to-date
+
 * [Virtualbox](https://www.virtualbox.org/)
 * [Vagrant](https://www.vagrantup.com/downloads)
 * [Ansible](http://docs.ansible.com/intro_installation.html)
