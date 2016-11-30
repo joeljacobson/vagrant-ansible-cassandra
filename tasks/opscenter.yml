@@ -33,7 +33,7 @@
     delay: 10
 
   - name: adding repo key
-    apt_key: url=https://debian.datastax.com/debian/repo_key state=present
+    apt_key: url=https://debian.datastax.com/debian/repo_key state=present validate_certs=False
 
   - name: updating machine
     apt: update_cache=yes
