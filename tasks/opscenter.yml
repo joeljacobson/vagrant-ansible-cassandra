@@ -8,6 +8,8 @@
     apt: pkg={{ item }} state=installed update-cache=yes
     with_items:
       - curl
+      - htop
+      - iostat
 
   - name: adding oracle java repository
     apt_repository: repo='ppa:webupd8team/java' state=present
@@ -33,7 +35,11 @@
     delay: 10
 
   - name: adding repo key
-    apt_key: url=https://debian.datastax.com/debian/repo_key state=present validate_certs=False
+    apt_key: url=https://debian.datastax.com/debian/repo_key state=present
+    register: dse_key
+    until: dse_key|success
+    retries: 5
+    delay: 10
 
   - name: updating machine
     apt: update_cache=yes
