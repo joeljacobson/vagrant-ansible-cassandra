@@ -22,7 +22,7 @@ Nodes will be running on: ```192.168.56.11```, ```192.168.56.12```, ```192.168.5
 
 Opscenter will be running on: ```192.168.56.14:8888```
 
-Select manage existing cluster and install agents manually. Install the datastax-agents by entering ```vagrant``` for both the username and password.
+Select manage existing cluster and install agents automatically, then enter ```vagrant``` for both the username and password.
 
 SSH into a node with: ```vagrant ssh <nodename>```
 
