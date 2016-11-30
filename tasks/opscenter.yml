@@ -11,6 +11,10 @@
 
   - name: adding oracle java repository
     apt_repository: repo='ppa:webupd8team/java' state=present
+    register: java
+    until: java|success
+    retries: 5
+    delay: 10
 
   - name: updating machine
     apt: update_cache=yes
@@ -21,8 +25,12 @@
   - name: installing oracle java
     shell: DEBIAN_FRONTEND=noninteractive apt-get -y install oracle-java8-installer oracle-java8-set-default
 
-  - name: adding repo
+  - name: adding dse repo
     shell: echo "deb http://datastaxrepo_gmail.com:utJVKEg4lKeaWTX@debian.datastax.com/enterprise stable main" | sudo tee -a /etc/apt/sources.list.d/datastax.sources.list
+    register: dse_repo
+    until: dse_repo|success
+    retries: 5
+    delay: 10
 
   - name: adding repo key
     apt_key: url=https://debian.datastax.com/debian/repo_key state=present

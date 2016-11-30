@@ -1,11 +1,19 @@
 - name: adding oracle java repository
-  apt_repository: repo='ppa:webupd8team/java' state=present validate_certs=False
+  apt_repository: repo='ppa:webupd8team/java' state=present
+  register: java
+  until: java|success
+  retries: 5
+  delay: 10
 
 - name: adding dse repo
   shell: echo "deb http://datastaxrepo_gmail.com:utJVKEg4lKeaWTX@debian.datastax.com/enterprise stable main" | sudo tee -a /etc/apt/sources.list.d/datastax.sources.list
+  register: dse_repo
+  until: dse_repo|success
+  retries: 5
+  delay: 10
 
 - name: adding repo key
-  apt_key: url=https://debian.datastax.com/debian/repo_key state=present validate_certs=no
+  apt_key: url=https://debian.datastax.com/debian/repo_key state=present
 
 - name: updating machine
   apt: update_cache=yes
