@@ -9,7 +9,6 @@
     with_items:
       - curl
       - htop
-      - iostat
 
   - name: adding oracle java repository
     apt_repository: repo='ppa:webupd8team/java' state=present

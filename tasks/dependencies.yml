@@ -6,4 +6,3 @@
   with_items:
   - curl
   - htop
-  - iostat
