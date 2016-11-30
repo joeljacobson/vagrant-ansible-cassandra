@@ -15,7 +15,7 @@
     register: java
     until: java|success
     retries: 5
-    delay: 10
+    delay: 5
 
   - name: updating machine
     apt: update_cache=yes
@@ -31,14 +31,14 @@
     register: dse_repo
     until: dse_repo|success
     retries: 5
-    delay: 10
+    delay: 5
 
   - name: adding repo key
     apt_key: url=https://debian.datastax.com/debian/repo_key state=present
     register: dse_key
     until: dse_key|success
     retries: 5
-    delay: 10
+    delay: 5
 
   - name: updating machine
     apt: update_cache=yes
