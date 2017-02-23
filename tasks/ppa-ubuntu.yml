@@ -1,0 +1,9 @@
+---
+- name: adding oracle java repository
+  apt_repository:
+    repo: 'ppa:webupd8team/java'
+    state: present
+  register: java
+  until: java|success
+  retries: 5
+  delay: 5

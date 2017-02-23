@@ -1,12 +1,16 @@
-- name: adding oracle java repository
-  apt_repository: repo='ppa:webupd8team/java' state=present
-  register: java
-  until: java|success
-  retries: 5
-  delay: 5
+---
+- include: "{{ os_include_item }}"
+  with_first_found:
+    - "ppa-{{ ansible_distribution }}.yml"
+    - "ppa-{{ ansible_os_family }}.yml"
+  loop_control:
+    loop_var: os_include_item
 
 - name: adding dse repo
-  shell: echo "deb http://datastaxrepo_gmail.com:utJVKEg4lKeaWTX@debian.datastax.com/enterprise stable main" | sudo tee -a /etc/apt/sources.list.d/datastax.sources.list
+  apt_repository:
+    repo: deb http://datastaxrepo_gmail.com:utJVKEg4lKeaWTX@debian.datastax.com/enterprise stable main
+    state: present
+    filename: datastax.sources
   register: dse_repo
   until: dse_repo|success
   retries: 5

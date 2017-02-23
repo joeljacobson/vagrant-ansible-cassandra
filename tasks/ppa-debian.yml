@@ -1,0 +1,15 @@
+---
+- name: adding oracle java repository
+  apt_repository:
+    repo: deb http://ppa.launchpad.net/webupd8team/java/ubuntu trusty main 
+    state: present
+    filename: webupd8team-java
+  register: java
+  until: java|success
+  retries: 5
+  delay: 5
+
+- name: add oracle java key
+  apt_key:
+    keyserver: keyserver.ubuntu.com
+    id: 7B2C3B0889BF5709A105D03AC2518248EEA14886
